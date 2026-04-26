@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Music Receiver — Studio HQ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <main class="app-shell">
+      <header class="hero glass">
+        <h1>Live Music Receiver <span>Studio HQ</span></h1>
+        <p>
+          Upload songs or MP4 videos and experience slowed, reverbed playback with retro-glass vibes.
+        </p>
+      </header>
+
+      <section class="panel glass controls">
+        <label class="upload" for="mediaInput">
+          <input id="mediaInput" type="file" accept="audio/*,video/mp4" />
+          <span>Upload Song or MP4</span>
+        </label>
+
+        <div class="preset-group">
+          <h2>Presets</h2>
+          <div class="preset-list" id="presetList"></div>
+        </div>
+
+        <div class="sliders">
+          <label>
+            Slow Amount
+            <input id="speed" type="range" min="0.55" max="1" step="0.01" value="0.82" />
+            <output id="speedOut">0.82x</output>
+          </label>
+          <label>
+            Reverb Mix
+            <input id="wet" type="range" min="0" max="1" step="0.01" value="0.42" />
+            <output id="wetOut">42%</output>
+          </label>
+          <label>
+            Warmth
+            <input id="warmth" type="range" min="-12" max="12" step="1" value="4" />
+            <output id="warmthOut">+4 dB</output>
+          </label>
+          <label>
+            Presence
+            <input id="presence" type="range" min="-12" max="12" step="1" value="3" />
+            <output id="presenceOut">+3 dB</output>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel glass playback">
+        <div class="media-wrap">
+          <audio id="audio" controls></audio>
+          <video id="video" controls playsinline hidden></video>
+          <p id="emptyState">No media loaded yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
